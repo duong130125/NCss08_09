@@ -1,5 +1,4 @@
-// Định nghĩa type Person
-type person = {
+type Person1 = {
     name: string;
     age: number;
 };
@@ -9,27 +8,27 @@ type Address = {
     city: string;
 };
 
-type PersonOrAddress = person | Address;
-type PersonAndAddress = person & Address;
+type PersonOrAddress = Person1 | Address;
+type PersonAndAddress = Person1 & Address;
 
-// Sử dụng kiểu dữ liệu PersonOrAddress
-let data1: PersonOrAddress = {
+type ComplexData = PersonOrAddress | PersonAndAddress;
+
+// Sử dụng kiểu dữ liệu ComplexData
+let item1: ComplexData = {
     name: "Đình Dương",
     age: 20,
 };
-let data2: PersonOrAddress = {
+let item2: ComplexData = {
+    street: "Mai Dịch",
+    city: "Hà Nội"
+};
+let item3: ComplexData = {
+    name: "Đình Dương",
+    age: 20,
     street: "Mai Dịch",
     city: "Hà Nội"
 };
 
-// Sử dụng kiểu dữ liệu PersonAndAddress
-let data3: PersonAndAddress = {
-    name: "Đình Dương",
-    age: 20,
-    street: "Mai Dịch",
-    city: "Hà Nội"
-};
-
-console.log("Data 1:", data1);
-console.log("Data 2:", data2);
-console.log("Data 3:", data3);
+console.log("Data 1:", item1);
+console.log("Data 2:", item2);
+console.log("Data 3:", item3);
